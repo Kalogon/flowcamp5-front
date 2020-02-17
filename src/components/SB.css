@@ -1,0 +1,12 @@
+.sidebar{
+    float:right;
+    background-color: cornflowerblue;
+    width: 20%;
+    color: white;
+    margin-right: 50px;
+    text-align: left;
+    position: fixed;
+}
+input[id="chkbox"]{
+    display:none;
+}
