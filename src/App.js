@@ -3,8 +3,8 @@ import './App.css';
 import {HashRouter, Route} from 'react-router-dom' 
 import NavBar from './components/NavBar';
 import Home from './routes/Home';
-import About from './routes/About';
-
+import Buy from './routes/Buy';
+import Sell from './routes/Sell';
 class App extends Component{
   constructor(props){ //초기화 담당
     super(props);
@@ -14,7 +14,8 @@ class App extends Component{
     return(
       <HashRouter>
         <NavBar></NavBar>
-        <Route path="/about" exact={true} component={About}/>
+        <Route path="/sell" exact={true} component={Sell}/>
+        <Route path="/buy" exact={true} component={Buy}/>
         <Route path="/" exact={true} component={Home}/>
       </HashRouter>
     )
