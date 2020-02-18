@@ -1,5 +1,6 @@
 import React from 'react';
 import './NavBar.css';
+import {Link} from 'react-router-dom'
 
 export default class App extends React.Component {
 
@@ -22,12 +23,12 @@ export default class App extends React.Component {
 
         <div id="lnb">
           <ul>
-            <li>Html</li>
-            <li>Css</li>
-            <li>Bootstrap</li>
-            <li>React</li>
-            <li>Javascript</li>
-            <li>Ajax</li>
+            <li><Link to="/">home</Link></li>
+            <li><Link to="/about">about</Link></li>
+            <li><Link to="/">Bootstrap</Link></li>
+            <li><Link to="/">React</Link></li>
+            <li><Link to="/">Javascript</Link></li>
+            <li><Link to="/">Ajax</Link></li>
           </ul>
         </div>
       </div>

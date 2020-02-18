@@ -13,8 +13,7 @@ class Chart extends Component{
         }
       return(
         <div id="content">
-          <Section></Section>
-          <Aside></Aside>
+          
         </div>
       );
     }

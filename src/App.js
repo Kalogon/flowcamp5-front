@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
-import SB from './components/SB';
+import {HashRouter, Route} from 'react-router-dom' 
 import NavBar from './components/NavBar';
-import Chart from './components/Chart';
+import Home from './routes/Home';
+import About from './routes/About';
 
 class App extends Component{
   constructor(props){ //초기화 담당
@@ -11,10 +12,11 @@ class App extends Component{
   render(){
     
     return(
-      <div className="App">
+      <HashRouter>
         <NavBar></NavBar>
-        <Chart></Chart>
-      </div>
+        <Route path="/about" exact={true} component={About}/>
+        <Route path="/" exact={true} component={Home}/>
+      </HashRouter>
     )
   }
 }
