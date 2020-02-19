@@ -2,6 +2,48 @@ import React, {Component} from 'react';
 import './Aside.css';
 
 class Aside extends Component{
+
+    state={}
+
+    componentDidMount(){
+        this._getProfile();
+    }
+
+    _getProfile= async()=>{
+        const profile = await this._callProfile()
+        console.log(profile);
+        this.setState({
+            profile:profile
+        })
+        console.log(this.state)
+    }
+
+    _callProfile = ()=>{
+        return fetch("https://yts.mx/api/v2/list_movies.json?sort_by=rating")
+        .then(res=> {
+            return res.json()
+        })
+        .then(json=> {
+            return json.data.movies
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    }
+
+    _renderProfile = ()=>{
+        console.log("1")
+        console.log(this.state.profile);
+        const movies = this.state.profile.map((movie) =>{
+          return (
+              <div>
+                  다행이다
+              </div>
+          ) 
+        });
+        return movies;
+    }
+    
     render(){
         return(
             <div id="aside">
@@ -15,19 +57,11 @@ class Aside extends Component{
                 </section>
                 <div class="tab_item">
                     <h1>Profile</h1>
-                    <ul>
-                        <li>name</li>
-                        <li>email</li>
-                        <li>money</li>
-                    </ul>
+                    {this.state.profile ? this._renderProfile() : "loading"}
                 </div>
                 <div class="tab_item">
                     <h1>finance</h1>
-                    <ul>
-                        <li>삼성전자</li>
-                        <li>본엔젤스</li>
-                        <li>펍지</li>
-                    </ul>
+                    {this.state.profile ? this._renderProfile() : "loading"}
                 </div>
             </div>       
         )
