@@ -1,8 +1,32 @@
 import React from 'react';
 import './NavBar.css';
-import {Link} from 'react-router-dom'
+import LoginNav from '../components/LoginNav';
+import NoLoginNav from '../components/NoLoginNav';
 
 export default class App extends React.Component {
+
+  state={}
+
+  componentDidMount(){
+      this._judgeAuth();
+  }
+
+  
+  _isAuthenticated = ()=>{
+      return fetch("http://kong.sparcs.org:37289/")
+      .then(res=>{
+          console.log(res);
+          return res.json()
+      })
+  }
+
+  _judgeAuth = async()=>{
+      const auth = await this._isAuthenticated();
+      if(auth.logincode === "OK"){
+          this.setState({logincode:"OK"})
+      }
+  }
+
 
   render() {
     return (
@@ -22,14 +46,7 @@ export default class App extends React.Component {
         </div> */}
 
         <div id="lnb">
-          <ul>
-            <li><Link to="/">home</Link></li>
-            <li><Link to="/buy">buy</Link></li>
-            <li><Link to="/sell">sell</Link></li>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/signup">Signup</Link></li>
-            <li><Link to="/">Ajax</Link></li>
-          </ul>
+          {this.state.logincode ? <LoginNav></LoginNav> : <NoLoginNav></NoLoginNav>}
         </div>
       </div>
     )
