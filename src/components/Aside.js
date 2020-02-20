@@ -11,6 +11,7 @@ class Aside extends Component{
 
     _getProfile= async()=>{
         const profile = await this._callProfile()
+        console.log("aaaaaaaaa");
         console.log(profile);
         this.setState({
             profile:profile
@@ -19,12 +20,13 @@ class Aside extends Component{
     }
 
     _callProfile = ()=>{
-        return fetch("https://yts.mx/api/v2/list_movies.json?sort_by=rating")
+        return fetch("http://kong.sparcs.org:37289/profile")
         .then(res=> {
+            console.log(res)
+            console.log(typeof(res))
             return res.json()
-        })
-        .then(json=> {
-            return json.data.movies
+        }).then(json=>{
+            return json;
         })
         .catch(err=>{
             console.log(err)
@@ -34,14 +36,12 @@ class Aside extends Component{
     _renderProfile = ()=>{
         console.log("1")
         console.log(this.state.profile);
-        const movies = this.state.profile.map((movie) =>{
-          return (
-              <div>
-                  다행이다
-              </div>
-          ) 
-        });
-        return movies;
+        return (
+            <div>
+                다행이다
+                {this.state.user}
+            </div>
+        )
     }
     
     render(){

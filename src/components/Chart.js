@@ -1,5 +1,6 @@
 import React, { Component, Image } from 'react';
 import './Chart.css'
+import '../components/financeChart'
 
 class Chart extends Component{
     
@@ -19,12 +20,12 @@ class Chart extends Component{
   }
 
   _callChart = ()=>{
-      return fetch("https://yts.mx/api/v2/list_movies.json?sort_by=rating")
+      return fetch("http://kong.sparcs.org:37289/finances")
       .then(res=> {
           return res.json()
       })
       .then(json=> {
-          return json.data.movies
+          return json.finances
       })
       .catch(err=>{
           console.log(err)
@@ -34,14 +35,14 @@ class Chart extends Component{
   _renderChart = ()=>{
       console.log("1")
       console.log(this.state.chart);
-      const movies = this.state.chart.map((movie) =>{
+      const finances = this.state.chart.map((finance) =>{
         return (
             <div>
-                다행이다
+                {finance.market_price}
             </div>
         ) 
       });
-      return movies;
+      return finances;
   }
 
 
