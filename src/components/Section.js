@@ -46,7 +46,8 @@ class Section extends Component{
     render(){
         return(
             <div id="section">
-                {this.state.kospi ? this._renderKospi() : "loading"}
+                loading
+                {/* {this.state.kospi ? this._renderKospi() : "loading"} */}
             </div>
         )
     }

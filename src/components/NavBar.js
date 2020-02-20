@@ -26,8 +26,8 @@ export default class App extends React.Component {
             <li><Link to="/">home</Link></li>
             <li><Link to="/buy">buy</Link></li>
             <li><Link to="/sell">sell</Link></li>
-            <li><Link to="/">React</Link></li>
-            <li><Link to="/">Javascript</Link></li>
+            <li><Link to="/login">Login</Link></li>
+            <li><Link to="/signup">Signup</Link></li>
             <li><Link to="/">Ajax</Link></li>
           </ul>
         </div>
