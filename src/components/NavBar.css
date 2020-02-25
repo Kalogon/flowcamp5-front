@@ -1,0 +1,59 @@
+*{ /*모르겠다*/
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+li{
+     list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    border: 0;
+}
+
+#nav{
+    width: 50%;
+    margin: 0 0;
+    height: 20%;
+    position: relative;
+}
+
+#nav > #title{
+    font-family: 'Sriracha', cursive;
+    position: relative;
+    left: 10%;
+    top: 10%;
+}
+
+#nav > #lnb{
+    /* position: absolute; */
+    float: left;
+    margin-left: 10%;
+    margin-top: 3%;
+    right: 0;
+    bottom: 10px;
+}
+
+#lnb > ul{
+    overflow: hidden;
+} 
+#lnb > ul > li{
+    float: left;
+    display: block;
+    padding: 5px 10px;
+    border: 1px solid black;
+}
+#lnb > ul > li:first-child{
+    border-radius: 10px 0 0 10px;
+}
+#lnb > ul > li:last-child{
+    border-radius: 0 10px 10px 0;
+}
