@@ -11,6 +11,12 @@ class App extends Component{
   constructor(props){ //초기화 담당
     super(props);
   }
+
+  componentDidMount() {
+    // 프록시로 등록한 서버주소가 생략됨
+    console.log("일단은")
+ }
+
   render(){
     
     return(
