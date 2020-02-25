@@ -38,7 +38,7 @@ class Aside extends Component{
         console.log(this.state.profile);
         return (
             <div>
-                다행이다
+                다행이다ㅠㅠㅠㅠㅠㅠㅠ너무귀여워
                 {this.state.user}
             </div>
         )
