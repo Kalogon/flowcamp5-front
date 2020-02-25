@@ -20,9 +20,8 @@ img{
 }
 
 #nav{
-    width: auto; margin: 0 auto;
-
-    height: 150px;
+    width: auto;
+    height: 100px;
     position: relative;
     background-color: antiquewhite;
 }
@@ -32,7 +31,8 @@ img{
     left: 50px;
     font-family: 'Sriracha', cursive;
     color: #5E2E0F;
-    position: absolute;
+    position: relative;
+
 }
 
 /* #nav > #gnb{

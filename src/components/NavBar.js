@@ -32,7 +32,7 @@ export default class App extends React.Component {
     return (
       <div id="nav">
         <div id="title">
-          <br></br>
+          
           <h1 id="fin">Finance</h1>
           <h3>Stock investment simulator</h3>
         </div>
