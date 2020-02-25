@@ -1,4 +1,4 @@
-*{ /*모르겠다*/
+*{
     margin: 0;
     padding: 0;
 }
@@ -20,27 +20,49 @@ img{
 }
 
 #nav{
-    width: 50%;
-    margin: 0 0;
-    height: 20%;
+    width: auto; margin: 0 auto;
+
+    height: 150px;
     position: relative;
+    background-color: antiquewhite;
 }
 
 #nav > #title{
+    float: left;
+    left: 50px;
     font-family: 'Sriracha', cursive;
-    position: relative;
-    left: 10%;
-    top: 10%;
+    color: #5E2E0F;
+    position: absolute;
 }
 
-#nav > #lnb{
-    /* position: absolute; */
-    float: left;
-    margin-left: 10%;
-    margin-top: 3%;
+/* #nav > #gnb{
+    position: absolute;
     right: 0;
+    top: 0;
+} */
+
+#nav > #lnb{
+    position: absolute;
+    right: 50px;
     bottom: 10px;
+    float:right;
 }
+
+/* #gnb > ul{
+    overflow: hidden;
+} 
+#gnb > ul > li{
+    float: left;
+    display: block;
+    padding: 2px 10px;
+    border: 1px solid black;
+}
+#gnb > ul > li:first-child{
+    border-radius: 10px 0 0 10px;
+}
+#gnb > ul > li:last-child{
+    border-radius: 0 10px 10px 0;
+} */
 
 #lnb > ul{
     overflow: hidden;
@@ -49,11 +71,12 @@ img{
     float: left;
     display: block;
     padding: 5px 10px;
-    border: 1px solid black;
+    font-family: 'Sriracha';
+    /* border: 1px solid #BF7137; */
 }
 #lnb > ul > li:first-child{
-    border-radius: 10px 0 0 10px;
+    border-radius: 5px 0 0 5px;
 }
 #lnb > ul > li:last-child{
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 5px 5px 0;
 }

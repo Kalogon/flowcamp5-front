@@ -11,6 +11,7 @@ class App extends Component{
   constructor(props){ //초기화 담당
     super(props);
   }
+
   render(){
     
     return(
