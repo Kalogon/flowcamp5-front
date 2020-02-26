@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {logout} from '../authentication'
-
+import { history } from '../History';
 
 class LoginNav extends Component{
 
     _logout(){
         logout();
+        history.push("/")
     }
 
     render(){

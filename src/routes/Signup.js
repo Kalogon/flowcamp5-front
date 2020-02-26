@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import { history } from '../History';
 import './Signup.css'
-
+import NavBar from '../components/NavBar';
 class Signup extends Component{
     constructor(props) {
         super(props);
@@ -70,16 +70,20 @@ class Signup extends Component{
             //     <input type="submit"/>
             //     </form>
             // </div>
-            <form className="form-signin">
-                <h2 className="form-signin-heading"> Please sign up </h2>
-                <label for="inputEmail" className="sr-only"> Email address
-                </label>
-                <input type="email" onChange={this._handleEmailChange} id="inputEmail" className="form-control" placeholder="Email address" required autofocus />
-                <label for="inputPassword" className="sr-only"> Password</label>
-                <input type="password" onChange={this._handlePasswordChange} id="inputPassword" className="form-control" placeholder="Password" required />
-                <button className="btn btn-lg btn-primary btn-block" onClick={this._signUp} type="button"> Sign up
-                </button>
-            </form>
+            <div>
+                <NavBar></NavBar>
+                <form className="form-signin">
+                    <h2 className="form-signin-heading"> Please sign up </h2>
+                    <label for="inputEmail" className="sr-only"> Email address
+                    </label>
+                    <input type="email" onChange={this._handleEmailChange} id="inputEmail" className="form-control" placeholder="Email address" required autofocus />
+                    <label for="inputPassword" className="sr-only"> Password</label>
+                    <input type="password" onChange={this._handlePasswordChange} id="inputPassword" className="form-control" placeholder="Password" required />
+                    <button className="btn btn-lg btn-primary btn-block" onClick={this._signUp} type="button"> Sign up
+                    </button>
+                </form>
+            </div>
+            
         )
     }
 }

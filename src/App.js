@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import {history} from './History';
 import { Router, Route, Switch } from "react-router-dom";
-import NavBar from './components/NavBar';
+
 import Home from './routes/Home';
 import Buy from './routes/Buy';
 import Sell from './routes/Sell';
@@ -25,7 +25,6 @@ class App extends Component{
     return(
       <div>
         <Router history={history}>
-          <NavBar></NavBar>
           <Switch>
             <Route path="/signup" exact={true} component={Signup}/>
             <Route path="/login" exact={true} component={Login}/>

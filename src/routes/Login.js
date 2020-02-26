@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import './Login.css'
 import { login } from '../authentication';
 import { history } from '../History';
-
+import NavBar from '../components/NavBar';
 class Login extends Component{
 
     constructor(props) {
@@ -51,7 +51,6 @@ class Login extends Component{
                 login(data)
                 console.log("login-success")
                 history.push("/")
-                
             }
               
           })
@@ -73,16 +72,20 @@ class Login extends Component{
             //     <input type="submit"/>
             //     </form>
             // </div>
-            <form className="form-signin">
-                <h2 className="form-signin-heading"> Please sign in </h2>
-                <label for="inputEmail" className="sr-only"> Email address
-                </label>
-                <input type="email" onChange={this._handleEmailChange} id="inputEmail" className="form-control" placeholder="Email address" required autofocus />
-                <label for="inputPassword" className="sr-only"> Password</label>
-                <input type="password" onChange={this._handlePasswordChange} id="inputPassword" className="form-control" placeholder="Password" required />
-                <button className="btn btn-lg btn-primary btn-block" onClick={this._signIn} type="button"> Sign in
-                </button>
-            </form>
+            <div>
+                <NavBar></NavBar>
+                <form className="form-signin">
+                    <h2 className="form-signin-heading"> Please sign in </h2>
+                    <label for="inputEmail" className="sr-only"> Email address
+                    </label>
+                    <input type="email" onChange={this._handleEmailChange} id="inputEmail" className="form-control" placeholder="Email address" required autofocus />
+                    <label for="inputPassword" className="sr-only"> Password</label>
+                    <input type="password" onChange={this._handlePasswordChange} id="inputPassword" className="form-control" placeholder="Password" required />
+                    <button className="btn btn-lg btn-primary btn-block" onClick={this._signIn} type="button"> Sign in
+                    </button>
+                </form>
+            </div>
+            
         )
     }
     
