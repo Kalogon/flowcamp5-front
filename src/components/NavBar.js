@@ -34,7 +34,7 @@ export default class App extends React.Component {
         <div id="title">
           
           <h1 id="fin">Finance</h1>
-          <h3>Stock investment simulator</h3>
+          <h3 id="desc">Stock Investment Simulator</h3>
         </div>
 
         {/* <div id="gnb">

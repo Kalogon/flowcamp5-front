@@ -23,16 +23,26 @@ img{
     width: auto;
     height: 100px;
     position: relative;
-    background-color: antiquewhite;
+    background-color: #E0D8FF;
 }
 
 #nav > #title{
     float: left;
     left: 50px;
     font-family: 'Sriracha', cursive;
-    color: #5E2E0F;
+    color: #4C389C;
     position: relative;
+    text-shadow:-2px 0 white,0 2px white,2px 0 white,0 -2px white;
 
+}
+#nav>#title>#fin{
+    font-style: normal;
+    margin-top: 10px;
+}
+#nav>#title>#desc{
+    font-weight: lighter;
+    font-style: italic;
+    margin-top: -15px;
 }
 
 /* #nav > #gnb{
@@ -73,6 +83,7 @@ img{
     padding: 5px 10px;
     font-family: 'Sriracha';
     /* border: 1px solid #BF7137; */
+    text-shadow:-2px 0 white,0 2px white,2px 0 white,0 -2px white;
 }
 #lnb > ul > li:first-child{
     border-radius: 5px 0 0 5px;
