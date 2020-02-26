@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Aside.css';
+import { getToken, getUser } from '../authentication';
 
 class Aside extends Component{
 
@@ -12,15 +13,33 @@ class Aside extends Component{
     _getProfile= async()=>{
         const profile = await this._callProfile()
         console.log("aaaaaaaaa");
-        console.log(profile);
+        console.log(getUser().username)
+        const user = profile["user"]
+        console.log(user)
+        const finances = []
+        for(let i=0 ; i< user["finances"].length;i++){
+            finances.push(user["finances"][i])
+        }
+        
         this.setState({
-            profile:profile
+            finances:finances,
+            username:user["username"],
+            money:user["money"]
         })
-        console.log(this.state)
     }
 
     _callProfile = ()=>{
-        return fetch("http://kong.sparcs.org:37289/profile")
+        return fetch("http://kong.sparcs.org:37289/api/user/profile",{
+            headers: {
+                "Content-Type": "application/json; charset=utf-8",
+                "x-access-token": getToken()
+            },
+            method: "POST",
+            body: JSON.stringify({
+                username:getUser().username
+            }),
+            credentials: 'same-origin'
+        })
         .then(res=> {
             console.log(res)
             console.log(typeof(res))
@@ -35,15 +54,25 @@ class Aside extends Component{
 
     _renderProfile = ()=>{
         console.log("1")
-        console.log(this.state.profile);
+        console.log(this.state)
         return (
             <div>
                 다행이다
-                {this.state.user}
+                {this.state.username}
+                <br></br>
+                {this.state.money}
+                <br></br>
+                <div className="finances">
+                    {this.state.finances.map((f,index)=>{
+                        return <Finance finance={f} key={index}/>
+                    })}
+                </div>
             </div>
         )
     }
     
+    
+
     render(){
         return(
             <div id="aside">
@@ -57,15 +86,23 @@ class Aside extends Component{
                 </section>
                 <div class="tab_item">
                     <h1>Profile</h1>
-                    {this.state.profile ? this._renderProfile() : "loading"}
+                    {this.state.username ? this._renderProfile() : "loading"}
                 </div>
                 <div class="tab_item">
                     <h1>finance</h1>
-                    {this.state.profile ? this._renderProfile() : "loading"}
+                    {this.state.username ? this._renderProfile() : "loading"}
                 </div>
             </div>       
         )
     }
 }
 
+function Finance({finance,key}){
+    return (
+        <div>
+            {finance["company_name"]}
+            {finance["amount"]}
+        </div>
+    )
+}
 export default Aside;
