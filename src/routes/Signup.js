@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import { history } from '../History';
 import './Signup.css'
 
 class Signup extends Component{
@@ -38,7 +39,14 @@ class Signup extends Component{
             return res.json()
         })
         .then(json=> {
-            return json.logincode
+            if(json.message === 'registered successfully'){
+                history.push("/login")
+                return json.message
+            }
+            else{
+                return json.message
+            }
+            
         })
         .catch(err=>{
             console.log(err)

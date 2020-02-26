@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import './Login.css'
 import { login } from '../authentication';
+import { history } from '../History';
 
 class Login extends Component{
 
@@ -49,6 +50,8 @@ class Login extends Component{
             else{
                 login(data)
                 console.log("login-success")
+                history.push("/")
+                
             }
               
           })
