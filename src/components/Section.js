@@ -37,7 +37,7 @@ class Section extends Component{
         console.log(this.state.kospi);
         const movies = this.state.kospi.map((movie) =>{
           return (
-              <img src={movie.medium_cover_image}></img>
+              <img src="https://ssl.pstatic.net/imgfinance/chart/sise/siseMainKOSPI.png?sid=1582736951208"></img>
           ) 
         });
         return movies;
@@ -46,8 +46,7 @@ class Section extends Component{
     render(){
         return(
             <div id="section">
-                loading
-                {/* {this.state.kospi ? this._renderKospi() : "loading"} */}
+                <img src="https://ssl.pstatic.net/imgfinance/chart/mobile/area/month3/KOSPI_end.png"></img>
             </div>
         )
     }

@@ -1,7 +1,7 @@
 import React, { Component, Image } from 'react';
 import './Chart.css'
-import FinanceChart from '../components/financeChart'
-
+import FinanceChart from './financeChart'
+import { getToken} from '../authentication';
 class Chart extends Component{
     
   state = {}
@@ -20,7 +20,12 @@ class Chart extends Component{
   }
 
   _callChart = ()=>{
-      return fetch("http://kong.sparcs.org:37289/finances")
+      return fetch("http://kong.sparcs.org:37289/api/user/finances",{
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "x-access-token": getToken()
+        }
+      })
       .then(res=> {
           return res.json()
       })
@@ -39,15 +44,15 @@ class Chart extends Component{
         return (
             <FinanceChart
               company_name={finance.company_name}
-              market_price={finance.market_price}
-              trade_volume={finance.trade_volume}
-              market_cap_rank={finance.market_cap_rank}
-              listed_stocks={finance.listed_stocks}
-              target_price={finance.target_price}
-              best={finance.best}
-              worst={finance.worst}
-              per_fn={finance.per_fn}
-              eps_fn={finance.eps_fn}
+              market_price={finance.market_price[0]}
+              trade_volume={finance.trade_volume[0]}
+              market_cap_rank={finance.market_cap_rank[0]}
+              listed_stocks={finance.listed_stocks[0]}
+              target_price={finance.target_price[0]}
+              best={finance.best[0]}
+              worst={finance.worst[0]}
+              per_fn={finance.per_fn[0]}
+              eps_fn={finance.eps_fn[0]}
               key={index}
             />
         ) 

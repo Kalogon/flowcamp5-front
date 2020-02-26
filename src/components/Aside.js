@@ -57,11 +57,18 @@ class Aside extends Component{
         console.log(this.state)
         return (
             <div>
-                다행이다
                 {this.state.username}
                 <br></br>
                 {this.state.money}
                 <br></br>
+            </div>
+        )
+    }
+    _renderFinance = ()=>{
+        console.log("1")
+        console.log(this.state)
+        return (
+            <div>
                 <div className="finances">
                     {this.state.finances.map((f,index)=>{
                         return <Finance finance={f} key={index}/>
@@ -70,7 +77,6 @@ class Aside extends Component{
             </div>
         )
     }
-    
     
 
     render(){
@@ -90,7 +96,7 @@ class Aside extends Component{
                 </div>
                 <div class="tab_item">
                     <h1>finance</h1>
-                    {this.state.username ? this._renderProfile() : "loading"}
+                    {this.state.username ? this._renderFinance() : "loading"}
                 </div>
             </div>       
         )
