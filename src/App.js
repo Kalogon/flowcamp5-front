@@ -8,6 +8,7 @@ import Buy from './routes/Buy';
 import Sell from './routes/Sell';
 import Login from './routes/Login';
 import Signup from './routes/Signup';
+import BuyEach from './routes/BuyEach';
 import { PrivateRoute } from './PrivateRoute';
 
 class App extends Component{
@@ -28,6 +29,7 @@ class App extends Component{
           <Switch>
             <Route path="/signup" exact={true} component={Signup}/>
             <Route path="/login" exact={true} component={Login}/>
+            <PrivateRoute path="/buyEach" exact={true} component={BuyEach}/>
             <PrivateRoute path="/sell" exact={true} component={Sell}/>
             <PrivateRoute path="/buy" exact={true} component={Buy}/>
             <PrivateRoute path="/" exact={true} component={Home}/>

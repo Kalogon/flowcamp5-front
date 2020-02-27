@@ -36,7 +36,6 @@ class Chart extends Component{
           console.log(err)
       })
   }
-
   _renderChart = ()=>{
       console.log("1")
       console.log(this.state.chart);
@@ -44,15 +43,30 @@ class Chart extends Component{
         return (
             <FinanceChart
               company_name={finance.company_name}
-              market_price={finance.market_price[0]}
-              trade_volume={finance.trade_volume[0]}
-              market_cap_rank={finance.market_cap_rank[0]}
-              listed_stocks={finance.listed_stocks[0]}
-              target_price={finance.target_price[0]}
-              best={finance.best[0]}
-              worst={finance.worst[0]}
-              per_fn={finance.per_fn[0]}
-              eps_fn={finance.eps_fn[0]}
+              market_price={finance.market_price}
+              market_price_all={finance.market_price_all}
+              trade_volume={finance.trade_volume}
+              market_cap_rank={finance.market_cap_rank}
+              listed_stocks={finance.listed_stocks}
+              face_value={finance.face_value}
+              trading_unit={finance.trading_unit}
+              foreigner_stock_limit={finance.foreigner_stock_limit}
+              foreigner_stock_possession={finance.foreigner_stock_possession}
+              foreigner_exhaustion_rate={finance.foreigner_exhaustion_rate}
+              investing_opinion={finance.investing_opinion}
+              target_price={finance.target_price}
+              best={finance.best}
+              worst={finance.worst}
+              per_fn={finance.per_fn}
+              eps_fn={finance.eps_fn}
+              per_krx={finance.per_krx}
+              eps_krx={finance.eps_krx}
+              per_expect={finance.per_expect}
+              eps_expect={finance.eps_expect}
+              pbr={finance.pbr}
+              bps={finance.bps}
+              dividend_yield={finance.dividend_yield}
+              same_industry_per={finance.same_industry_per}
               key={index}
             />
         ) 
