@@ -6,7 +6,7 @@ class FinanceChart extends Component{
         return(
             <tr>
                 <td><Link to={{
-                    pathname: "/buyEach",
+                    pathname: "/viewMore",
                     state: {
                         company_name:this.props.company_name,
                         market_price: this.props.market_price,

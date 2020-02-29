@@ -1,11 +1,20 @@
 import React,{Component} from 'react'
 import NavBar from '../components/NavBar';
 import Aside from '../components/Aside'
-import './BuyEach.css'
+import './ViewMore.css'
 import { getToken, getUser } from '../authentication';
 import { history } from '../History';
 
-class BuyEach extends Component{
+class ViewMore extends Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          amount:0
+        };
+    }
+
+    state = {}
 
     _requestBuy= ()=>{
         return fetch("http://kong.sparcs.org:37289/api/user/buy",{
@@ -21,7 +30,7 @@ class BuyEach extends Component{
             body: JSON.stringify({
                 username:getUser().username,
                 company_name:this.props.location.state["company_name"][0],
-                amount: 10
+                amount: this.state.amount
             })
         })
         .then(res=> {
@@ -41,7 +50,44 @@ class BuyEach extends Component{
         }
     }
 
-    
+    _requestSell= ()=>{
+        return fetch("http://kong.sparcs.org:37289/api/user/sell",{
+            headers: {
+                "Content-Type": "application/json; charset=utf-8",
+                "x-access-token": getToken()
+            },
+            credentials: 'same-origin',
+            // SameSite: 'None',
+            // Secure: 'true',
+            // mode:'no-cors',
+            method: "POST",
+            body: JSON.stringify({
+                username:getUser().username,
+                company_name:this.props.location.state["company_name"][0],
+                amount: this.state.amount
+            })
+        })
+        .then(res=> {
+            return res.json()
+        })
+    }
+
+    _sell= async ()=>{
+        const receivedCode = await this._requestSell();
+        console.log("code")
+        console.log(receivedCode)
+        if(receivedCode["code"]=="success"){
+            history.push("/sell")
+        }
+        else{
+            console.log("망함")
+        }
+    }
+
+    _handlebuyandsellChange= (e)=>{
+        this.setState({amount:e.target.value})
+    }
+
 
     render(){
         console.log(this.props.location.state["company_name"])
@@ -76,7 +122,10 @@ class BuyEach extends Component{
                     {this.props.location.state["dividend_yield"]}<br></br>
                     {this.props.location.state["same_industry_per"]}<br></br>
                 </div>
+                <input type ="number" onChange={this._handlebuyandsellChange}></input>
                 <button onClick={this._buy} type="button">buy
+                </button>
+                <button onClick={this._sell} type="button">sell
                 </button>
                 <Aside></Aside>
             </div>
@@ -84,4 +133,4 @@ class BuyEach extends Component{
     }
 }
 
-export default BuyEach
+export default ViewMore
