@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './hmhmh.png'
 import './Section.css'
 
 class Section extends Component{

@@ -1,13 +1,13 @@
 import React from 'react'
 import Aside from '../components/Aside'
-import Chart from '../components/Chart'
+import MyFinances from '../components/MyFinances'
 import NavBar from '../components/NavBar';
 import './Sell.css'
 function Sell(){
     return(
         <div id="content">
             <NavBar></NavBar>
-            <Chart></Chart>
+            <MyFinances></MyFinances>
             <Aside></Aside>
         </div>
     )

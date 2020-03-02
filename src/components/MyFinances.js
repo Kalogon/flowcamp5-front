@@ -1,8 +1,8 @@
 import React, { Component} from 'react';
 import './Chart.css'
 import FinanceChart from './financeChart'
-import { getToken} from '../authentication';
-class Chart extends Component{
+import { getToken, getUser} from '../authentication';
+class MyFinances extends Component{
     
   state = {}
 
@@ -20,17 +20,22 @@ class Chart extends Component{
   }
 
   _callChart = ()=>{
-      return fetch("http://kong.sparcs.org:37289/api/user/finances",{
+      return fetch("http://kong.sparcs.org:37289/api/user/own",{
         headers: {
           "Content-Type": "application/json; charset=utf-8",
           "x-access-token": getToken()
-        }
+        },
+        method:"POST",
+        body: JSON.stringify({
+            username:getUser().username
+        }),
+        credentials: 'same-origin'
       })
       .then(res=> {
           return res.json()
       })
       .then(json=> {
-          return json.finances
+          return json.output
       })
       .catch(err=>{
           console.log(err)
@@ -111,4 +116,4 @@ class Chart extends Component{
   }
 }
 
-export default Chart;
+export default MyFinances;
