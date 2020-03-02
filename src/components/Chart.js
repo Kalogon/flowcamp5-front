@@ -1,4 +1,4 @@
-import React, { Component, Image } from 'react';
+import React, { Component} from 'react';
 import './Chart.css'
 import FinanceChart from './financeChart'
 import { getToken} from '../authentication';

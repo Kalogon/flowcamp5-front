@@ -42,10 +42,12 @@ class ViewMore extends Component{
         const receivedCode = await this._requestBuy();
         console.log("code")
         console.log(receivedCode)
-        if(receivedCode["code"]=="success"){
+        if(receivedCode["code"]==="success"){
             history.push("/buy")
         }
         else{
+            history.push("/buy")
+            alert('buy fail!');
             console.log("망함")
         }
     }
@@ -76,10 +78,12 @@ class ViewMore extends Component{
         const receivedCode = await this._requestSell();
         console.log("code")
         console.log(receivedCode)
-        if(receivedCode["code"]=="success"){
+        if(receivedCode["code"]==="success"){
             history.push("/sell")
         }
         else{
+            history.push("/sell")
+            alert("sell fail")
             console.log("망함")
         }
     }
