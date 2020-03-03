@@ -19,6 +19,20 @@ img{
     border: 0;
 }
 
+.panel > .panel-heading{
+    font-size: large;
+    font-weight: bold;
+}
+
+.panel > table > tr > th {
+    font-size: medium;
+    font-weight: bolder;
+    padding: 5px 5px;
+}
+
+.panel > table > tr > td {
+    padding: 5px 5px;
+}
 
 
 

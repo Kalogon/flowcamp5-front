@@ -82,34 +82,38 @@ class MyFinances extends Component{
   render(){
     return(
       <div id="section">
-        <table border="1">
-          <tr>
-            <th>기업이름</th>
-            <th>현재가</th>
-            <th>거래량</th>
-            <th>시가총액순위</th>
-            <th>상장주식수</th>
-            <th>목표주가</th>
-            <th>52주 최고</th>
-            <th>52주 최저</th>
-            <th>PER_fn</th>
-            <th>EPS_fn</th>
-          </tr>
-          {this.state.chart ? this._renderChart() : 
-          <tr>
-            <td>Data1</td>
-            <td>Data2</td>
-            <td>Data3</td>
-            <td>Data4</td>
-            <td>Data5</td>
-            <td>Data6</td>
-            <td>Data7</td>
-            <td>Data8</td>
-            <td>Data9</td>
-            <td>Data10</td>
-          </tr>}
-          
-        </table>
+        <br></br>
+        <div className="panel panel-default">
+          <div class="panel-heading">나의 주식목록</div>
+          <table className="table">
+            <tr>
+              <th>기업이름</th>
+              <th>현재가</th>
+              <th>거래량</th>
+              <th>시가총액순위</th>
+              <th>상장주식수</th>
+              <th>목표주가</th>
+              <th>52주 최고</th>
+              <th>52주 최저</th>
+              <th>PER_fn</th>
+              <th>EPS_fn</th>
+            </tr>
+            {this.state.chart ? this._renderChart() : 
+            <tr>
+              <td>Data1</td>
+              <td>Data2</td>
+              <td>Data3</td>
+              <td>Data4</td>
+              <td>Data5</td>
+              <td>Data6</td>
+              <td>Data7</td>
+              <td>Data8</td>
+              <td>Data9</td>
+              <td>Data10</td>
+            </tr>}
+            
+          </table>
+        </div>
       </div>
     );
   }

@@ -79,6 +79,7 @@ img{
  .card-default > .card-header{ 
      border-bottom: 1px solid #ddd; 
      padding: 12px; 
+     font-size: large;
      background-color: #000;
      color: #ddd;
     }
@@ -168,7 +169,7 @@ line-height: 4em;
   display: block;
   text-decoration: none;
   color: #999;
-  font-size: 1.3vw;
+  font-size: 1vw;
   text-align: center;
 }
 
