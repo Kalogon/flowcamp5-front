@@ -1,64 +1,61 @@
 import React from 'react';
-import './NavBar.css';
-import LoginNav from '../components/LoginNav';
-import NoLoginNav from '../components/NoLoginNav';
-import { getToken } from '../authentication';
+import {Link} from 'react-router-dom'
+import {logout, getUser} from '../authentication'
+import { history } from '../History';
+import './Navbar.css'
 
 export default class App extends React.Component {
 
-  state={}
-
-  componentDidMount(){
-      this._judgeAuth();
+  _logout(){
+    logout();
+    history.push("/")
   }
 
-  
-  _isAuthenticated = ()=>{
-      return fetch("http://kong.sparcs.org:37289/api/auth/check",{
-        headers: {
-          "Content-Type": "application/json; charset=utf-8",
-          "x-access-token": getToken()
-        },
-        credentials: 'same-origin'
-      })
-      .then(res=>{
-          console.log(res);
-          return res.json()
-      })
-      .then(data => {
-          if(data.success===true){
-            this.setState({logincode:"OK"})
-          }
-      });
-  }
-
-  _judgeAuth = async()=>{
-      const auth = await this._isAuthenticated();
-      console.log("현재 state"+this.state);
-  }
-
-
-  render() {
+  render(){
     return (
-      <div id="nav">
-        <div id="title">
-          <h1>Finance</h1>
-          <h2>html practice</h2>
+        <div>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Stock Investment Game</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li role="presentation"><Link to="/">home</Link></li>
+                        <li role="presentation"><Link to="/buy">buy</Link></li>
+                        <li role="presentation"><Link to="/sell">sell</Link></li>
+                        
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search"/>
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{getUser()["username"]} <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li role="presentation"><button className="btn btn-primary btn-block" onClick={this._logout} type="button">logout</button></li>
+                        </ul>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </nav>
+            
         </div>
-
-        {/* <div id="gnb">
-          <ul>
-            <li>Web</li>
-            <li>Mobile</li>
-            <li>Game</li>
-            <li>AI</li>
-          </ul>
-        </div> */}
-
-        <div id="lnb">
-          {this.state.logincode ? <LoginNav></LoginNav> : <NoLoginNav></NoLoginNav>}
-        </div>
-      </div>
+        
     )
-  }
+}
 }

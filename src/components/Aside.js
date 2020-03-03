@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import './Aside.css';
 import { getToken, getUser } from '../authentication';
-
 class Aside extends Component{
 
     state={}
@@ -57,10 +55,7 @@ class Aside extends Component{
         console.log(this.state)
         return (
             <div>
-                {this.state.username}
-                <br></br>
-                {this.state.money}
-                <br></br>
+                <p>보유머니:{this.state.money}</p>
             </div>
         )
     }
@@ -82,7 +77,7 @@ class Aside extends Component{
     render(){
         return(
             <div id="aside">
-                <input id="first" type="radio" name="tab" checked="checked"></input>
+                {/* <input id="first" type="radio" name="tab" checked="checked"></input>
                 <input id="second" type="radio" name="tab"></input>
                 <section class="buttons">
                 <label for="first">
@@ -97,7 +92,17 @@ class Aside extends Component{
                 <div class="tab_item">
                     <h1>finance</h1>
                     {this.state.username ? this._renderFinance() : "loading"}
+                </div> */}
+
+                <div id="sidebar-wrapper">
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-brand">
+                            {this.state.username ? this._renderProfile() : "loading"}
+                        </li>
+                        {this.state.username ? this._renderFinance() : "loading"}
+                    </ul>
                 </div>
+
             </div>       
         )
     }
@@ -106,7 +111,7 @@ class Aside extends Component{
 function Finance({finance,key}){
     return (
         <div>
-            {finance["company_name"]}
+            {finance["company_name"]} :&nbsp;
             {finance["amount"]}
         </div>
     )

@@ -5,10 +5,16 @@ import NavBar from '../components/NavBar';
 import './Buy.css'
 function Buy(){
     return(
-        <div id="content">
+        <div id="container-fluid">
             <NavBar></NavBar>
-            <Chart></Chart>
-            <Aside></Aside>
+            <div className="col-xs-2">
+                <Aside></Aside>
+            </div>
+            <div className="col-xs-10">
+                <Chart></Chart>
+            </div>
+            
+            
         </div>
     )
 }

@@ -5,10 +5,15 @@ import NavBar from '../components/NavBar';
 import './Sell.css'
 function Sell(){
     return(
-        <div id="content">
+        <div id="container-fluid">
             <NavBar></NavBar>
-            <MyFinances></MyFinances>
-            <Aside></Aside>
+            <div className="col-xs-2">
+                <Aside></Aside>
+            </div>
+            <div className="col-xs-10">
+                <MyFinances></MyFinances>
+            </div>
+            
         </div>
     )
 }

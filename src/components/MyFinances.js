@@ -1,5 +1,4 @@
 import React, { Component} from 'react';
-import './Chart.css'
 import FinanceChart from './financeChart'
 import { getToken, getUser} from '../authentication';
 class MyFinances extends Component{

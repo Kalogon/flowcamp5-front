@@ -96,12 +96,12 @@ class ViewMore extends Component{
     render(){
         console.log(this.props.location.state["company_name"])
         return(
-            <div id="content">
+            <div id="container-fluid">
                 <NavBar></NavBar>
 
                 <div id="section">
-                    {this.props.location.state["company_name"]}<br></br>
-                    {this.props.location.state["market_price"]}<br></br>
+                    {this.props.location.state["company_name"]}<br></br><br></br>
+                    {this.props.location.state["market_price"]}<br></br><br></br>
                     {this.props.location.state["market_price_all"]}<br></br>
                     {this.props.location.state["trade_volume"]}<br></br>
                     {this.props.location.state["market_cap_rank"]}<br></br>
