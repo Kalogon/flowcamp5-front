@@ -63,11 +63,8 @@ class MyFinances extends Component{
               worst={finance.worst}
               per_fn={finance.per_fn}
               eps_fn={finance.eps_fn}
-              per_krx={finance.per_krx}
-              eps_krx={finance.eps_krx}
               per_expect={finance.per_expect}
               eps_expect={finance.eps_expect}
-              pbr={finance.pbr}
               bps={finance.bps}
               dividend_yield={finance.dividend_yield}
               same_industry_per={finance.same_industry_per}

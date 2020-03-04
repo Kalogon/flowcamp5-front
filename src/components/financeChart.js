@@ -25,16 +25,13 @@ class FinanceChart extends Component{
                         worst: this.props.worst,
                         per_fn: this.props.per_fn,
                         eps_fn: this.props.eps_fn,
-                        per_krx:this.props.per_krx,
-                        eps_krx: this.props.eps_krx,
                         per_expect: this.props.per_expect,
                         eps_expect: this.props.eps_expect,
-                        pbr: this.props.pbr,
                         bps: this.props.bps,
                         dividend_yield:this.props.dividend_yield,
                         same_industry_per: this.props.same_industry_per,
                     }
-                }}>{this.props.company_name[0]}</Link></td>
+                }}>{this.props.company_name}</Link></td>
                 <td>{this.props.market_price[0]}</td>
                 <td>{this.props.trade_volume[0]}</td>
                 <td>{this.props.market_cap_rank[0]}</td>
