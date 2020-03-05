@@ -6,7 +6,7 @@ class Section extends Component{
             <div id="section">
                 <br></br>
                 <div class="card card-default">
-                <div class="card-header">코스피 지수</div>
+                <div class="card-header">코스피,코스닥 지수</div>
                 <div class="card-body card-6-6">
                     <div class="card-left">
                         <img src="https://ssl.pstatic.net/imgfinance/chart/mobile/area/month3/KOSPI_end.png"></img>

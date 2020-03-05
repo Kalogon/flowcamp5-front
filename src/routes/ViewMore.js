@@ -17,6 +17,71 @@ class ViewMore extends Component{
     state = {}
     
 
+    componentDidMount(){
+        console.log("제발")
+        this._getChart()
+        .then(()=>{
+            let company_name = this.props.location.state["company_name"]
+            // let chart = 
+
+            this.state.chart.map((finance)=>{
+                if(finance["company_name"]==company_name){
+                    this.setState({
+                        data_price: finance["market_price"]
+                    })
+                }
+                return finance
+            })
+        })
+        
+        setInterval(()=>{
+            this._getChart()
+            .then(()=>{
+                let company_name = this.props.location.state["company_name"]
+                // let chart = 
+    
+                this.state.chart.map((finance)=>{
+                    if(finance["company_name"]==company_name){
+                        this.setState({
+                            data_price: finance["market_price"]
+                        })
+                    }
+                    return finance
+                })
+            })
+            
+        },20000)
+        
+    }
+
+    _getChart= async()=>{
+        const chart = await this._callChart()
+        console.log(chart);
+        this.setState({
+          chart:chart
+        })
+    }
+  
+    _callChart = ()=>{
+        return fetch("http://kong.sparcs.org:37289/api/user/finances",{
+          headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            "x-access-token": getToken()
+          }
+        })
+        .then(res=> {
+            return res.json()
+        })
+        .then(json=> {
+            return json.finances
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    }  
+
+
+
 
     _requestBuy= ()=>{
         return fetch("http://kong.sparcs.org:37289/api/user/buy",{
@@ -99,18 +164,15 @@ class ViewMore extends Component{
 
         let temp1 = this.props.location.state["market_price"]
         let temp2 = this.props.location.state["trade_volume"]
-        let data_price = this.props.location.state["market_price"]
-
         
-    
         const data = {
-            labels: ['9:00', '9:10', '9:20', '9:30', '9:40', '9:50', '9:60', 
-            '10:00', '10:10', '10:20', '10:30', '10:40', '10:50',
-            '11:00', '11:10', '11:20', '11:30', '11:40', '11:50',
-            '12:00', '12:10', '12:20', '12:30', '12:40', '12:50',
-            '1:00', '1:10', '1:20', '1:30', '1:40', '1:50',
-            '2:00', '2:10', '2:20', '2:30', '2:40', '2:50',
-            '3:00', '3:10', '3:20', '3:30'],
+            labels: ['9:00', '9:05', '9:10', '9:15', '9:20', '9:25', '9:30', '9:35', '9:40', '9:45', '9:50', '9:55', 
+            '10:00', '10:05', '10:10', '10:15', '10:20', '10:25', '10:30', '10:35', '10:40', '10:45', '10:50', '10:55',
+            '11:00', '11:05', '11:10', '11:15', '11:20', '11:25', '11:30', '11:35', '11:40', '11:45', '11:50', '11:55',
+            '12:00', '12:05', '12:10', '12:15', '12:20', '12:25', '12:30', '12:35', '12:40', '12:45', '12:50', '12:55', 
+            '1:00', '1:05', '1:10', '1:15', '1:20', '1:25', '1:30', '1:35', '1:40', '1:45', '1:50', '1:55',
+            '2:00', '2:05', '2:10', '2:15', '2:20', '2:25', '2:30', '2:35', '2:40', '2:45', '2:50', '2:55',
+            '3:00', '3:05', '3:10', '3:15', '3:20', '3:25', '3:30'],
             datasets: [
               {
                 label: 'My First dataset',
@@ -131,8 +193,9 @@ class ViewMore extends Component{
                 pointHoverBorderWidth: 2,
                 pointRadius: 1,
                 pointHitRadius: 10,
-                data: data_price.map(function(d){
-                    console.log(Number(d.replace(",","")))
+                data: this.state.data_price ? this.state.data_price.map(function(d){
+                    return Number(d.replace(",",""))
+                }) : this.props.location.state["market_price"].map(function(d){
                     return Number(d.replace(",",""))
                 })
               }
@@ -178,6 +241,10 @@ class ViewMore extends Component{
                                     <tr>
                                         <td>현재가</td>
                                         <td>{this.props.location.state["market_price"][temp1.length-1]}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>전일비</td>
+                                        <td>{Number(this.props.location.state["market_price"][temp1.length-1].replace(",",""))-Number(this.props.location.state["market_price"][0].replace(",",""))}</td>
                                     </tr>
                                     <tr>
                                         <td>거래량</td>

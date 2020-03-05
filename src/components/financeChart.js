@@ -2,7 +2,17 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 // {company_name,market_price,trade_volume,market_cap_rank,listed_stocks,target_price,best,worst,per_fn,eps_fn}
 class FinanceChart extends Component{
+    
     render(){
+        let temp1 = this.props.market_price
+        let temp2 = this.props.trade_volume
+        const style = {
+            color:"blue"
+        }
+        if(Number(this.props.market_price[temp1.length-1].replace(",",""))-Number(this.props.market_price[temp1.length-2].replace(",",""))<0){
+            style.color = "red"
+        }
+        
         return(
             <tr>
                 <td><Link to={{
@@ -32,17 +42,19 @@ class FinanceChart extends Component{
                         same_industry_per: this.props.same_industry_per,
                     }
                 }}>{this.props.company_name}</Link></td>
-                <td>{this.props.market_price[0]}</td>
-                <td>{this.props.trade_volume[0]}</td>
-                <td>{this.props.market_cap_rank[0]}</td>
-                <td>{this.props.listed_stocks[0]}</td>
-                <td>{this.props.target_price[0]}</td>
-                <td>{this.props.best[0]}</td>
-                <td>{this.props.worst[0]}</td>
-                <td>{this.props.per_fn[0]}</td>
-                <td>{this.props.eps_fn[0]}</td>
+                <td>
+                    <div style={style}>{this.props.market_price[temp1.length-1]}</div>
+                </td>
+                <td>{this.props.trade_volume[temp2.length-1]}</td>
+                <td>{this.props.market_cap_rank[temp2.length-1]}</td>
+                <td>{this.props.listed_stocks[temp2.length-1]}</td>
+                <td>{this.props.target_price[temp2.length-1]}</td>
+                <td>{this.props.best[temp2.length-1]}</td>
+                <td>{this.props.worst[temp2.length-1]}</td>
+                <td>{this.props.per_fn[temp2.length-1]}</td>
+                <td>{this.props.eps_fn[temp2.length-1]}</td>
             </tr>
-            
+
         )
     }
     

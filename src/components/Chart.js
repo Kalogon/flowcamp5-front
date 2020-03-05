@@ -6,7 +6,7 @@ class Chart extends Component{
   state = {}
 
   componentDidMount(){
-    this._getChart();
+    this._getChart()
   }
 
   _getChart= async()=>{
@@ -17,6 +17,7 @@ class Chart extends Component{
       })
       console.log(this.state)
   }
+  
 
   _callChart = ()=>{
       return fetch("http://kong.sparcs.org:37289/api/user/finances",{
@@ -38,6 +39,7 @@ class Chart extends Component{
   _renderChart = ()=>{
       console.log("1")
       console.log(this.state.chart);
+      
       const finances = this.state.chart.map((finance,index) =>{
         return (
             <FinanceChart
