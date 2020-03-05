@@ -19,9 +19,23 @@ img{
     border: 0;
 }
 
+.panel > .bs > tr > td.bs{
+    padding: 0
+}
+
 .panel > .panel-heading{
     font-size: large;
     font-weight: bold;
+}
+
+.panel > .bs > tr > th {
+    font-size: medium;
+    font-weight: bolder;
+    padding: 10px 10px;
+}
+
+.panel > .bs > tr > td {
+    padding: 10px 10px;
 }
 
 .panel > table > tr > th {
@@ -33,7 +47,6 @@ img{
 .panel > table > tr > td {
     padding: 5px 5px;
 }
-
 
 
 

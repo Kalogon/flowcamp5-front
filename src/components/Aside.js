@@ -60,12 +60,14 @@ class Aside extends Component{
         )
     }
     _renderFinance = ()=>{
-        console.log("1")
-        console.log(this.state)
+        const before_sort = this.state.finances
+        const after_sort = before_sort.sort(function(a,b){
+            return a["amount"] > b["amount"] ? -1 : a["amount"] < b["amount"] ? 1 : 0
+        })
         return (
             <div>
                 <div className="finances">
-                    {this.state.finances.map((f,index)=>{
+                    {after_sort.map((f,index)=>{
                         return <Finance finance={f} key={index}/>
                     })}
                 </div>

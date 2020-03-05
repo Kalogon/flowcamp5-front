@@ -9,7 +9,10 @@ class FinanceChart extends Component{
         const style = {
             color:"blue"
         }
-        if(Number(this.props.market_price[temp1.length-1].replace(",",""))-Number(this.props.market_price[temp1.length-2].replace(",",""))<0){
+        if(temp1.length == 1){
+            style.color = "blue"
+        }
+        else if(Number(this.props.market_price[temp1.length-1].replace(",",""))-Number(this.props.market_price[temp1.length-2].replace(",",""))<0){
             style.color = "red"
         }
         
@@ -44,6 +47,9 @@ class FinanceChart extends Component{
                 }}>{this.props.company_name}</Link></td>
                 <td>
                     <div style={style}>{this.props.market_price[temp1.length-1]}</div>
+                </td>
+                <td>
+                    <div>{Number(this.props.market_price[temp1.length-1].replace(",",""))-Number(this.props.market_price[0].replace(",",""))}</div>
                 </td>
                 <td>{this.props.trade_volume[temp2.length-1]}</td>
                 <td>{this.props.market_cap_rank[temp2.length-1]}</td>

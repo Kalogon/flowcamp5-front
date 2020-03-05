@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import FinanceChart from './financeChart'
-import { getToken} from '../authentication';
+import { getToken, getUser} from '../authentication';
 class Chart extends Component{
     
   state = {}
@@ -24,7 +24,11 @@ class Chart extends Component{
         headers: {
           "Content-Type": "application/json; charset=utf-8",
           "x-access-token": getToken()
-        }
+        },
+        method: "POST",
+        body: JSON.stringify({
+          username:getUser().username
+        }),
       })
       .then(res=> {
           return res.json()
@@ -83,6 +87,7 @@ class Chart extends Component{
             <tr>
               <th>기업이름</th>
               <th>현재가</th>
+              <th>전일비</th>
               <th>거래량</th>
               <th>시가총액순위</th>
               <th>상장주식수</th>
