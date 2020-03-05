@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import './Login.css'
 import { login } from '../authentication';
 import { history } from '../History';
+import {Link} from 'react-router-dom'
 import NavBar from '../components/NavBar';
 class Login extends Component{
 
@@ -72,18 +73,47 @@ class Login extends Component{
             //     <input type="submit"/>
             //     </form>
             // </div>
-            <div>
-                <NavBar></NavBar>
-                <form className="form-signin">
-                    <h2 className="form-signin-heading"> Please sign in </h2>
-                    <label for="inputEmail" className="sr-only"> Email address
-                    </label>
-                    <input type="email" onChange={this._handleEmailChange} id="inputEmail" className="form-control" placeholder="Email address" required autofocus />
-                    <label for="inputPassword" className="sr-only"> Password</label>
-                    <input type="password" onChange={this._handlePasswordChange} id="inputPassword" className="form-control" placeholder="Password" required />
-                    <button className="btn btn-lg btn-primary btn-block" onClick={this._signIn} type="button"> Sign in
-                    </button>
-                </form>
+            <div className="container">
+
+                <div class="row justify-content-center">
+                    <div class="col-xs-12 col-lg-12 col-md-12">
+            
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <div class="row">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                </div>
+                                <form class="user">
+                                    <div class="form-group">
+                                        <input type="email" onChange={this._handleEmailChange} class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..."/>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" onChange={this._handlePasswordChange} class="form-control form-control-user" id="exampleInputPassword" placeholder="Password"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox small">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck"/>
+                                            <label class="custom-control-label" for="customCheck">Remember Me</label>
+                                        </div>
+                                    </div>
+                                    <button className="btn btn-lg btn-primary btn-block" onClick={this._signIn} type="button"> Sign in</button>
+                                </form>
+                                <div class="text-center">
+                                    <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                </div>
+                                <div class="text-center">
+                                    <Link to="/signup">Create an Account!</Link>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
             </div>
             
         )

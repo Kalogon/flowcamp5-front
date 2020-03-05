@@ -10,11 +10,21 @@ class Home extends Component{
 
     render(){
         return (
-            <div id="content">
-                <NavBar></NavBar>
-                <Section></Section>
-                <Aside></Aside>
+            <div>
+                <div classname="container-fluid">
+                    <NavBar></NavBar>
+                    <div className="col-xs-2">
+                        <Aside></Aside>
+                    </div>
+                    <div className="col-xs-10">
+                        <Section></Section>
+                    </div>
+                    
+                </div>
             </div>
+            
+                
+            
         )
     }
 }

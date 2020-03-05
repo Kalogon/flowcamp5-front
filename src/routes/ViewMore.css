@@ -20,64 +20,23 @@ img{
 }
 
 
-#content {
-    width:1200px; margin: 0 auto;
-
-    overflow: hidden;
-}
-#content > #section{
-    width: 750px;
-    float:left;
-}
-#content > #aside{
-    width: 250px;
-    height: 500px;
-    border: 1px solid black;
-    border-radius: 10px 10px 10px 10px;
-    padding: 2px 15px;
-    float: right;
+div.bs{
+    padding: 10px 10px;
 }
 
-#content > #aside > section.buttons{
-    overflow: hidden;
-}
-#content > #aside > section.buttons > label{
-    display: block; float: left;
-
-    width:100px; height: 30px;
-    text-align: center;
-
-    border: 1px solid black;
-    border-radius: 5px 5px 5px 5px;
-
-    background: black;
-    color:white;
+td{
+    padding: 10px 10px;
 }
 
-
-#content > #aside > input:nth-of-type(1){
-    display: none;
-}
-#content > #aside > input:nth-of-type(1)~div:nth-of-type(1){
-    display: none;
-}
-#content > #aside > input:nth-of-type(1):checked~div:nth-of-type(1){
-    display: block;
+form.bs{
+    margin: 0 auto;
+    width: 100px;
 }
 
-
-#content > #aside > input:nth-of-type(2){
-    display: none;
+button.bs{
+    margin: 5px auto;
+    width: 100px;
 }
-#content > #aside > input:nth-of-type(2)~div:nth-of-type(2){
-    display: none;
-}
-#content > #aside > input:nth-of-type(2):checked~div:nth-of-type(2){
-    display: block;
-}
-
-
-
 
 
 

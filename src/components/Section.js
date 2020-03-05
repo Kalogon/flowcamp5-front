@@ -1,51 +1,27 @@
 import React, { Component } from 'react';
-import './Section.css'
 
 class Section extends Component{
-
-    state={}
-
-    componentDidMount(){
-        this._getKospi();
-    }
-
-    _getKospi= async()=>{
-        const kospi = await this._callKospi()
-        console.log(kospi);
-        this.setState({
-            kospi:kospi
-        })
-        console.log(this.state)
-    }
-
-    _callKospi = ()=>{
-        return fetch("https://yts.mx/api/v2/list_movies.json?sort_by=rating")
-        .then(res=> {
-            return res.json()
-        })
-        .then(json=> {
-            return json.data.movies
-        })
-        .catch(err=>{
-            console.log(err)
-        })
-    }
-
-    _renderKospi = ()=>{
-        console.log("1")
-        console.log(this.state.kospi);
-        const movies = this.state.kospi.map((movie) =>{
-          return (
-              <img src="https://ssl.pstatic.net/imgfinance/chart/sise/siseMainKOSPI.png?sid=1582736951208"></img>
-          ) 
-        });
-        return movies;
-    }
-
     render(){
         return(
             <div id="section">
-                <img src="https://ssl.pstatic.net/imgfinance/chart/mobile/area/month3/KOSPI_end.png"></img>
+                <br></br>
+                <div class="card card-default">
+                <div class="card-header">코스피,코스닥 지수</div>
+                <div class="card-body card-6-6">
+                    <div class="card-left">
+                        <img src="https://ssl.pstatic.net/imgfinance/chart/mobile/area/month3/KOSPI_end.png"></img>
+                    </div>
+                    <div class="card-right">
+                        <img src="https://ssl.pstatic.net/imgfinance/chart/mobile/area/month3/KOSDAQ_end.png"></img>
+                    </div>
+                    <div className="card-caption">aaa</div>
+                </div>
+                <div class="card-body">
+                    <p>왼쪽은 최근 3개월 이내의 코스피 지수의 변화이고 오른쪽은 코스닥 지수의 변화이다.</p>
+                </div>
+              
+                </div>
+                
             </div>
         )
     }

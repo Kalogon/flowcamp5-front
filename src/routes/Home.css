@@ -1,85 +1,179 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
-body{
-    font-family: sans-serif;
-}
-
-li{
-     list-style: none;
-}
-
-a{
-    text-decoration: none;
+.navbar{
+    margin-bottom: 0;
 }
 
 img{
-    border: 0;
+    max-width: 100%;
+    height: auto;
+}
+
+.col-xs-2{
+    padding: 0;
 }
 
 
-#content {
-    width:1200px; margin: 0 auto;
 
-    overflow: hidden;
-}
-#content > #section{
-    width: 750px;
-    float:left;
-}
-#content > #aside{
-    width: 250px;
-    height: 500px;
-    border: 1px solid black;
-    border-radius: 10px 10px 10px 10px;
-    padding: 2px 15px;
+
+/* === card component ====== 
+ * Variation of the panel component
+ * version 2018.10.30
+ * https://codepen.io/jstneg/pen/EVKYZj
+ */
+ .card{ background-color: #fff; border: 1px solid transparent; border-radius: 6px; }
+ .card > .card-link{ color: #333; }
+ .card > .card-link:hover{  text-decoration: none; }
+ .card > .card-link .card-img img{ border-radius: 6px 6px 0 0; }
+ .card .card-img{ position: relative; padding: 0; display: table; }
+ .card .card-img .card-caption{
+   position: absolute;
+   right: 0;
+   bottom: 16px;
+   left: 0;
+ }
+ .card .card-body{ display: table; width: 100%; padding: 12px; }
+ .card .card-header{ border-radius: 6px 6px 0 0; padding: 8px; }
+ .card .card-footer{ border-radius: 0 0 6px 6px; padding: 8px; }
+ .card .card-left{ position: relative; float: left; padding: 0 0 8px 0; }
+ .card .card-right{ position: relative; float: left; padding: 8px 0 0 0; }
+ .card .card-body h1:first-child,
+ .card .card-body h2:first-child,
+ .card .card-body h3:first-child, 
+ .card .card-body h4:first-child,
+ .card .card-body .h1,
+ .card .card-body .h2,
+ .card .card-body .h3, 
+ .card .card-body .h4{ margin-top: 0; }
+ .card .card-body .heading{ display: block;  }
+ .card .card-body .heading:last-child{ margin-bottom: 0; }
+ 
+ .card .card-body .lead{ text-align: center; }
+ 
+ @media( min-width: 768px ){
+   .card .card-left{ float: left; padding: 0 8px 0 0; }
+   .card .card-right{ float: left; padding: 0 0 0 8px; }
+     
+   .card .card-4-8 .card-left{ width: 33.33333333%; }
+   .card .card-4-8 .card-right{ width: 66.66666667%; }
+ 
+   .card .card-5-7 .card-left{ width: 41.66666667%; }
+   .card .card-5-7 .card-right{ width: 58.33333333%; }
+   
+   .card .card-6-6 .card-left{ width: 50%; }
+   .card .card-6-6 .card-right{ width: 50%; }
+   
+   .card .card-7-5 .card-left{ width: 58.33333333%; }
+   .card .card-7-5 .card-right{ width: 41.66666667%; }
+   
+   .card .card-8-4 .card-left{ width: 66.66666667%; }
+   .card .card-8-4 .card-right{ width: 33.33333333%; }
+ }
+ 
+ /* -- default theme ------ */
+ .card-default{ 
+   border-color: #ddd;
+   background-color: #fff;
+   margin-bottom: 24px;
+ }
+ .card-default > .card-header,
+ .card-default > .card-footer{ color: #333; background-color: #ddd; }
+ .card-default > .card-header{ 
+     border-bottom: 1px solid #ddd; 
+     padding: 12px; 
+     font-size: large;
+     background-color: #000;
+     color: #ddd;
+    }
+ .card-default > .card-footer{ border-top: 1px solid #ddd; padding: 12px; }
+ .card-default > .card-body{  }
+ .card-default > .card-img:first-child img{ border-radius: 6px 6px 0 0; }
+ .card-default > .card-left{ padding-right: 4px; }
+ .card-default > .card-right{ padding-left: 4px; }
+ .card-default p:last-child{ margin-bottom: 0; }
+ .card-default .card-caption { color: #fff; text-align: center; text-transform: uppercase; }
+ 
+ 
+ /* -- price theme ------ */
+ .card-price{ border-color: #999; background-color: #ededed; margin-bottom: 24px; }
+ .card-price > .card-heading,
+ .card-price > .card-footer{ color: #333; background-color: #fdfdfd; }
+ .card-price > .card-heading{ border-bottom: 1px solid #ddd; padding: 8px; }
+ .card-price > .card-footer{ border-top: 1px solid #ddd; padding: 8px; }
+ .card-price > .card-img:first-child img{ border-radius: 6px 6px 0 0; }
+ .card-price > .card-left{ padding-right: 4px; }
+ .card-price > .card-right{ padding-left: 4px; }
+ .card-price .card-caption { color: #fff; text-align: center; text-transform: uppercase; }
+ .card-price p:last-child{ margin-bottom: 0; }
+ 
+ .card-price .price{ 
+   text-align: center; 
+   color: #337ab7; 
+   font-size: 3em; 
+   text-transform: uppercase;
+   line-height: 0.7em; 
+   margin: 24px 0 16px;
+ }
+ .card-price .price small{ font-size: 0.4em; color: #66a5da; }
+ .card-price .details{ list-style: none; margin-bottom: 24px; padding: 0 18px; }
+ .card-price .details li{ text-align: center; margin-bottom: 8px; }
+ .card-price .buy-now{ text-transform: uppercase; }
+ .card-price table .price{ font-size: 1.2em; font-weight: 700; text-align: left; }
+ .card-price table .note{ color: #666; font-size: 0.8em; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#sidebar-wrapper {
+    position: fixed;
+    width: 16.7%;
+    height: 100%;
+    background: #000;
     float: right;
 }
 
-#content > #aside > section.buttons{
-    overflow: hidden;
+#page-content-wrapper {
+width: 100%;
+padding: 20px;
 }
-#content > #aside > section.buttons > label{
-    display: block; float: left;
+/* 사이드바 스타일 */
 
-    width:100px; height: 30px;
-    text-align: center;
-
-    border: 1px solid black;
-    border-radius: 5px 5px 5px 5px;
-
-    background: black;
-    color:white;
+.sidebar-nav {
+width: 100%;
+margin: 0;
+padding: 0;
+list-style: none;
 }
 
+.sidebar-nav li {
+line-height: 4em;
 
-#content > #aside > input:nth-of-type(1){
-    display: none;
-}
-#content > #aside > input:nth-of-type(1)~div:nth-of-type(1){
-    display: none;
-}
-#content > #aside > input:nth-of-type(1):checked~div:nth-of-type(1){
-    display: block;
 }
 
+.sidebar-nav li > div > p{
+  color: #bbbbbb;
+  font-size: 1.5vw;
+  text-align: center;
+} 
 
-#content > #aside > input:nth-of-type(2){
-    display: none;
+.sidebar-nav div {
+  display: block;
+  text-decoration: none;
+  color: #999;
+  font-size: 1vw;
+  text-align: center;
 }
-#content > #aside > input:nth-of-type(2)~div:nth-of-type(2){
-    display: none;
+
+.sidebar-nav >div > div> div:hover {
+color: #fff;
+background: rgba(255, 255, 255, 0.2);
 }
-#content > #aside > input:nth-of-type(2):checked~div:nth-of-type(2){
-    display: block;
-}
-
-
-
-
-
-
-
-
